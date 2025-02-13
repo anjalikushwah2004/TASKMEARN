@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>document</title>
+</head>
+
+<body>
+    <h1>LOGIN</h1>
+    <input type="text" id="uname" placeholder="enter user name">
+    <br>
+    <input type="password" id="pwd" placeholder="Enter password">
+    <br>
+    <button onclick="login()">login</button>
+    <h1 id="msg"></h1>
+    <script>
+        function login() {
+            var uname = document.getElementById("uname").value
+            var pwd = document.getElementById("pwd").value
+            var h1ele = document.getElementById("msg")
+            if (uname == "") {
+            h1ele.innerHTML = "please fill username"
+                return
+            }
+            else if (pwd == "") {
+            h1ele.innerHTML = "please fill password"
+            return
+            }
+            if (uname == "0823ds221014" && pwd == "sdits02") {
+            h1ele.innerHTML = "login sucsses"
+            }
+            else {
+            h1ele.innerHTML = "login failed"
+            }
+        }
+    </script>
+</body>
+
+</html>
