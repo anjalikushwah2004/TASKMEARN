@@ -28,25 +28,39 @@
             {Name:"Aman",Surname:"kushwah",Age:22,Address:"Gujrat"},
             {Name:"Shivani",Surname:"Mahajan",Age:24,Address:"Sanawad"}]
             student(students)
-        
+         
+            
             function student(name){
              var  Maparray= name.map((v)=>`<li>
              <h2>Name:${v.Name} Surname:${v.Surname}</h2>
              <h3>Age:${v.Age}</h3>
              <h4>Address:${v.Address}</h4></li>`).join(" ")
-             var list= document.getElementById("result").innerHTML=Maparray;
+             var listelement = document.getElementById("result").innerHTML=Maparray;
+            }
+            function changefilter(chekedvalue){
+                check=checkvalue
             }
                function searchInput() {
                 var input= document.getElementById("input").value.toLowerCase();
-                var  modified= students.filter((value)=>value.Name.toLowerCase().startsWith(input))
-                student(modified)
-        
-                
+                var  modified= students.filter((value)=>{
+                    if (check=="Name") {
+                        return value.Name.toLowerCase().startsWith(input.value) 
+                    } if (check=="Surname") {
+                        return value.Surname.toLowerCase().startsWith(input.value) 
+                    } if (check=="Age") {
+                        return value.Age==input.value 
+                    } if (check=="Address") {
+                        return value.Address.toLowerCase().startsWith(input.value) 
+                    }
+                })
+                student(modified)  
             } 
             function changefilter(chekedvalue){
-                check=checkedvalue
+                list.innerHTML=modifiedstudents.map((v)=>`<li> <h2>Name:${v.Name} Surname:${v.Surname} </h2> 
+                    <h3>Age:${v.Age} </h3> 
+                    <h4>Address:${v.Address} </h4? `)
             }
-
+            
             </script> 
 </body>
 </html>
