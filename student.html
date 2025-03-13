@@ -42,13 +42,13 @@ function saveusername(){
             <h1>Username: ${student.username}</h1>
             <h1> Email ID: ${student.emailid}</h1>
             <h1> Full Name: ${student.fullname}</h1>
-            <h1> City: ${student.city} </h1>`
+            <h1> City: ${student.city} </h1> </div>`
           )
         } 
         function deleteStudent(index){
-            var modifiedList = listOfStudents.splice(index, 1)
-            localStorage.setItem("students", JSON.stringify(modifiedList))
-            showStudentData()
+              listOfStudents.splice(index, 1)
+            localStorage.setItem("students", JSON.stringify(listOfStudents))
+            showStudentdata()
         }
 
     </script>

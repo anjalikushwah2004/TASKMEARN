@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Login</title>
+</head>
+
+<body class="flex justify-center items-center bg-gradient-to-b from-blue-500 to-cyan-200 min-h-screen ">
+    <div class="bg-white rounded-2xl p-6 m-2 shadow-black">
+    <h1 class="text-3xl font-bold ">LOGIN</h1>
+    <input class="text-2xl border-2 border-gray-400 p-1 rounded-lg m-2" type="text" id="uname" placeholder="Enter user name">
+    <br>
+    <input  class="text-2xl border-2 p-1 rounded-lg m-2" type="password" id="pwd" placeholder="Enter password">
+    <br>
+    <h2 class="text-2xl">User type:</h2>
+    <input type="radio" name="type" value="admin">Admin<br>
+    <input type="radio" name="type" value="student">Student <br>
+  
+    <button onclick="login()">login</button>
+    <h1 id="msg"></h1>
+</div>
+    <script>
+        function login() {
+            var uname = document.getElementById("uname").value
+            var pwd = document.getElementById("pwd").value
+            var h1ele = document.getElementById("msg")
+            var type = document.getElementsByName("type");
+            var usertype = "";
+             for (var i = 0; i < 2; i++) {
+            if (type[i].checked) {
+             usertype = type[i].value;
+             break;
+            }
+        }           
+            if (uname == "") {
+            h1ele.innerHTML = "please fill username"
+            return
+            }
+            else if (pwd == "") {
+            h1ele.innerHTML = "please fill password"
+            return
+            }
+            // Get users from localStorage
+            var listOfusers = JSON.parse(localStorage.getItem("user")) || [];
+            // Check if the user exists and the password matches
+          var userFound = false;
+       for (var i = 0; i < listOfusers.length; i++) {
+         if (listOfusers[i].username == uname && listOfusers[i].password == pwd && listOfusers[i].type == usertype) {
+          userFound = true;
+          break;
+           }
+        }
+         // If the user is found, login is successful
+    if (userFound) {
+        // check usertype and show different success messages
+        if (usertype=="admin"){
+            h1ele.innerHTML = "Admin login successful!";
+            window.location.href=("ques.html");
+        } else if (usertype=="student"){
+            h1ele.innerHTML = "student login succussfull";
+            window.location.href=("optend.html");
+        }
+      h1ele.innerHTML = "Login successful!";
+      return
+    } else {
+      h1ele.innerHTML = "Login Failed. Please try again.";
+      return
+    }
+}
+    </script>
+</body>
+
+</html>
