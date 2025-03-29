@@ -1,14 +1,25 @@
-import Student from "./student"
+import React from "react"
+import Header from "./Header"
+import { Outlet } from "react-router"
+import Footer from "./footer"
+
 
 
 function App() {
   
 
   return (
- <>
- <Student/>
- </>
+    <>
+  <Header/>
+  <Outlet/>
+   
+   <Footer/>
+   
+   
+    </>
   )
+    
+  
 }
 
 export default App

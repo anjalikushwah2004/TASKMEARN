@@ -4,6 +4,7 @@ import axios from 'axios'
 export default function User() {
     const [listOfUsers, setlistOfUsers] =useState([])
     const [selectedUser,setSelectedUser] =useState(null)
+  
     useEffect(()=> {
         async function getData() {
          let response =await axios.get("https://jsonplaceholder.typicode.com/users")
